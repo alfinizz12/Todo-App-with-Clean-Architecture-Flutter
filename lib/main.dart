@@ -2,6 +2,7 @@ import 'package:clean_architecture_todo_app/features/todo/data/models/todo_model
 import 'package:clean_architecture_todo_app/features/todo/presentation/bindings/todo_bindings.dart';
 import 'package:clean_architecture_todo_app/features/todo/presentation/pages/add_todo_page.dart';
 import 'package:clean_architecture_todo_app/features/todo/presentation/pages/todo_page.dart';
+import 'package:clean_architecture_todo_app/features/todo/presentation/pages/update_todo_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -31,6 +32,11 @@ class MainApp extends StatelessWidget {
         GetPage(
           name: '/add-todo', 
           page: () => AddTodoPage()
+        ),
+
+        GetPage(
+          name: '/update-todo', 
+          page: () => UpdateTodoPage()
         )
       ],
     );

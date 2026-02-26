@@ -3,20 +3,27 @@ import 'package:clean_architecture_todo_app/features/todo/domain/usecases/create
 import 'package:clean_architecture_todo_app/features/todo/domain/usecases/delete_todo.dart';
 import 'package:clean_architecture_todo_app/features/todo/domain/usecases/get_todos.dart';
 import 'package:clean_architecture_todo_app/features/todo/domain/usecases/toggle_complete.dart';
+import 'package:clean_architecture_todo_app/features/todo/domain/usecases/update_todo.dart';
 import 'package:get/get.dart';
 
-class TodoController extends GetxController{
+class TodoController extends GetxController {
   final CreateTodo _createTodoUsecase;
   final DeleteTodo _deleteTodoUsecase;
   final GetTodos _getTodosUsecase;
+  final UpdateTodo _updateTodoUsecase;
   final ToggleComplete _toggleCompleteUsecase;
 
-  TodoController(
-    this._createTodoUsecase,
-    this._getTodosUsecase,
-    this._deleteTodoUsecase,
-    this._toggleCompleteUsecase
-  );
+  TodoController({
+    required CreateTodo createTodoUsecase,
+    required GetTodos getTodosUsecase,
+    required DeleteTodo deleteTodoUsecase,
+    required UpdateTodo updateTodoUsecase,
+    required ToggleComplete toggleCompleteUsecase,
+  }) : _createTodoUsecase = createTodoUsecase,
+       _getTodosUsecase = getTodosUsecase,
+       _deleteTodoUsecase = deleteTodoUsecase,
+       _updateTodoUsecase = updateTodoUsecase,
+       _toggleCompleteUsecase = toggleCompleteUsecase;
 
   @override
   void onInit() async {
@@ -39,9 +46,9 @@ class TodoController extends GetxController{
 
   Future<void> createTodo(String title, String description) async {
     final todo = Todo(
-      id: DateTime.now().millisecond, 
-      title: title, 
-      description: description
+      id: DateTime.now().millisecond,
+      title: title,
+      description: description,
     );
     await _createTodoUsecase.call(todo);
     _getAllTodos();
@@ -56,4 +63,8 @@ class TodoController extends GetxController{
     await _getAllTodos();
   }
 
+  Future<void> updateTodo(Todo todo) async {
+    await _updateTodoUsecase.call(todo);
+    await _getAllTodos();
+  }
 }

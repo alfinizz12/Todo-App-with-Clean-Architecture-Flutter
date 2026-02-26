@@ -24,10 +24,11 @@ class TodoBindings extends Bindings {
 
     Get.lazyPut(
       () => TodoController(
-        Get.find<CreateTodo>(),
-        Get.find<GetTodos>(),
-        Get.find<DeleteTodo>(),
-        Get.find<ToggleComplete>(),
+        createTodoUsecase: Get.find<CreateTodo>(),
+        deleteTodoUsecase: Get.find<DeleteTodo>(),
+        getTodosUsecase: Get.find<GetTodos>(),
+        updateTodoUsecase: Get.find<UpdateTodo>(),
+        toggleCompleteUsecase: Get.find<ToggleComplete>()
       ),
     );
   }

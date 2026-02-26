@@ -18,7 +18,7 @@ class TodoPage extends GetView<TodoController> {
               child: Text("No todo yet!"),
             );
           }
-
+        
           return ListView.separated(
             itemCount: controller.todos.length,
             separatorBuilder: (context, index) => SizedBox(height: 5,),
@@ -36,6 +36,9 @@ class TodoPage extends GetView<TodoController> {
                     }, 
                     icon: Icon(Icons.delete)
                   ),
+                  onTap: () {
+                    Get.toNamed('/update-todo', arguments: todo);
+                  },
                 ),
               );
             },
