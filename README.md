@@ -72,9 +72,9 @@ lib/
 │ │ └── usecases/
 │ │
 │ └── presentation/
-│ ├── pages/
-│ ├── controllers/
-│ └── bindings/
+│   ├── pages/
+│   ├── controllers/
+│   └── bindings/
 │
 └── main.dart
 ```
