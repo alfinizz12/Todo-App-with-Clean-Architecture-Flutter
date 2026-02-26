@@ -54,6 +54,7 @@ Layer ini bertanggung jawab terhadap pengambilan dan pengelolaan data.
 ---
 
 ## 📂 Project Structure
+```
 lib/
 │
 ├── core/
@@ -76,7 +77,7 @@ lib/
 │ └── bindings/
 │
 └── main.dart
-
+```
 
 ---
 
